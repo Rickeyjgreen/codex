@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bybo AI | Clinical Integrator Updates</title>
+  <meta name="description" content="David Tarullo Contract Update for ARS Louisville." />
+  <style>
+    :root {
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-300: #93c5fd;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-800: #1e40af;
+      --blue-900: #1e3a8a;
+      --emerald-50: #ecfdf5;
+      --emerald-100: #d1fae5;
+      --emerald-400: #34d399;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+      --indigo-50: #eef2ff;
+      --indigo-100: #e0e7ff;
+      --indigo-600: #4f46e5;
+      --indigo-700: #4338ca;
+      --indigo-800: #3730a3;
+      --indigo-900: #312e81;
+      --amber-50: #fffbeb;
+      --amber-100: #fef3c7;
+      --amber-500: #f59e0b;
+      --amber-600: #d97706;
+      --amber-800: #92400e;
+      --amber-900: #78350f;
+      --red-50: #fef2f2;
+      --red-100: #fee2e2;
+      --red-200: rgba(254, 202, 202, 0.55);
+      --red-300: rgba(252, 165, 165, 0.7);
+      --red-400: #f87171;
+      --red-500: #ef4444;
+      --red-600: #dc2626;
+      --red-700: #b91c1c;
+      --red-800: #991b1b;
+      --red-900: #7f1d1d;
+      --white: #ffffff;
+      --radius-xl: 16px;
+      --radius-2xl: 20px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.16);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--slate-100) 0%, #e9eef5 100%);
+      color: var(--slate-800);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .page { max-width: 1120px; margin: 0 auto; padding: 16px; }
+    .stack { display: grid; gap: 24px; }
+    .card { background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-2xl); box-shadow: var(--shadow-sm); }
+    .hero { background: linear-gradient(180deg, var(--slate-900) 0%, #111827 100%); color: var(--white); border-radius: var(--radius-2xl); padding: 24px; box-shadow: var(--shadow-lg); }
+    .hero-top p { margin: 0; }
+    .eyebrow { color: var(--blue-400); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+    h1 { margin: 0; font-size: clamp(2rem, 4vw, 2.5rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; }
+    .hero-sub { color: var(--slate-400); margin-top: 10px; font-size: 1.1rem; }
+    .hero-grid, .grid-2, .row-grid, .support-grid, .three-grid, .risk-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    .panel { border-radius: var(--radius-xl); padding: 20px; border: 1px solid transparent; }
+    .panel-blue { background: rgba(37, 99, 235, 0.18); border-color: rgba(96, 165, 250, 0.28); }
+    .panel-slate { background: rgba(30, 41, 59, 0.92); border-color: rgba(51, 65, 85, 1); }
+    .panel-title { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    .panel-title.blue { color: var(--blue-300); }
+    .panel-title.slate { color: var(--slate-400); }
+    .panel-text-strong { margin: 0; font-size: 1.1rem; font-weight: 700; line-height: 1.45; color: var(--white); }
+    .panel-text { margin: 0; color: #dbe2ea; font-size: 0.95rem; line-height: 1.65; }
+    .section-pad { padding: 24px; }
+    .split-card { overflow: hidden; display: flex; flex-direction: column; }
+    .split-top { padding: 24px; background: var(--slate-50); border-bottom: 1px solid var(--slate-100); }
+    .split-bottom { padding: 24px; background: var(--indigo-50); flex: 1; }
+    .amber-top { padding: 24px; background: var(--amber-50); border-bottom: 1px solid var(--amber-100); }
+    .dark-bottom { padding: 24px; background: var(--slate-900); color: var(--white); }
+    .icon-title { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; }
+    .icon-title h2, .icon-title h3, .plain-title { margin: 0; font-weight: 800; color: var(--slate-900); }
+    .plain-title { font-size: 1.125rem; margin-bottom: 14px; }
+    .icon-badge { width: 40px; height: 40px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+    .icon-emerald { background: var(--emerald-50); color: var(--emerald-500); }
+    .icon-indigo { background: var(--indigo-50); color: var(--indigo-600); }
+    .icon-amber { background: var(--amber-50); color: var(--amber-600); }
+    .icon-blue { background: var(--blue-50); color: var(--blue-500); }
+    .icon-red { background: var(--red-50); color: var(--red-500); }
+    .subtle { color: var(--slate-600); font-size: 0.95rem; line-height: 1.6; }
+    .italic { font-style: italic; }
+    .list-clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .list-clean li { display: flex; gap: 12px; align-items: flex-start; color: var(--slate-700); font-weight: 500; line-height: 1.5; }
+    .dot { width: 12px; height: 12px; margin-top: 7px; border-radius: 999px; background: var(--emerald-100); box-shadow: inset 0 0 0 4px var(--emerald-600); flex: none; }
+    .highlight-box, .result-box, .status-box, .risk-box { background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+    .highlight-box { padding: 16px; border: 1px solid var(--slate-200); }
+    .result-box { padding: 16px; border: 1px solid var(--indigo-100); }
+    .status-box { padding: 24px; border: 1px solid var(--slate-200); }
+    .risk-box { padding: 24px; background: var(--red-50); border: 1px solid var(--red-100); }
+    .label-red, .label-indigo, .label-blue, .label-slate { margin: 0 0 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .label-red { color: var(--red-600); }
+    .label-indigo { color: var(--indigo-900); }
+    .label-blue { color: var(--blue-300); }
+    .label-slate { color: var(--slate-400); }
+    .mini-head { color: var(--slate-800); font-weight: 600; margin: 0 0 10px; line-height: 1.5; }
+    .tag-row, .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 12px; font-weight: 700; background: var(--slate-100); color: var(--slate-600); padding: 6px 10px; border-radius: 8px; }
+    .three-grid { list-style: none; padding: 0; margin: 12px 0 0; gap: 8px; }
+    .three-grid li { background: var(--indigo-50); color: var(--indigo-700); border: 1px solid var(--indigo-100); border-radius: 10px; text-align: center; padding: 10px 12px; font-size: 12px; font-weight: 800; }
+    .amber-emphasis { color: var(--amber-800); font-weight: 800; font-size: 1.125rem; margin: 0 0 16px; }
+    .amber-copy { color: var(--amber-900); font-size: 0.95rem; font-weight: 600; margin: 0 0 14px; }
+    .arrow-list { list-style: none; padding: 0; margin: 0 0 10px; display: grid; gap: 10px; }
+    .arrow-list li { display: flex; gap: 10px; align-items: center; color: var(--amber-800); font-size: 0.95rem; }
+    .arrow { color: var(--amber-500); font-weight: 900; }
+    .translation { margin: 0; font-size: 1.125rem; font-weight: 600; line-height: 1.45; }
+    .translation span { color: var(--emerald-400); font-weight: 800; }
+    .status-callout { background: var(--slate-50); border-left: 4px solid var(--blue-500); border-radius: 0 14px 14px 0; padding: 16px; margin-bottom: 16px; }
+    .status-callout p { margin: 0; }
+    .status-main { font-weight: 800; color: var(--slate-800); }
+    .status-sub { color: var(--slate-600); font-size: 0.95rem; margin-top: 6px; }
+    .chip { font-size: 12px; background: var(--slate-100); color: var(--slate-700); padding: 8px 12px; border-radius: 999px; font-weight: 600; border: 1px solid var(--slate-200); }
+    .risk-alert { background: var(--red-200); border: 1px solid var(--red-300); border-radius: 14px; padding: 16px; margin-bottom: 16px; color: var(--red-900); font-size: 0.95rem; font-weight: 800; line-height: 1.6; }
+    .risk-grid { list-style: none; padding: 0; margin: 0; gap: 8px; }
+    .risk-grid li { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(254, 226, 226, 0.7); background: rgba(255, 255, 255, 0.7); color: var(--red-700); font-size: 0.95rem; }
+    .support-card { padding: 28px; background: var(--white); }
+    .support-grid { gap: 12px; }
+    .ask { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 14px; border: 1px solid var(--slate-200); background: var(--slate-50); cursor: pointer; transition: 160ms ease; appearance: none; font: inherit; text-align: left; width: 100%; }
+    .ask:hover { background: #eef2f7; border-color: var(--slate-300); }
+    .ask.checked { background: var(--blue-50); border-color: var(--blue-100); box-shadow: inset 0 1px 2px rgba(37, 99, 235, 0.08); }
+    .ask-icon { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--slate-400); color: transparent; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; margin-top: 1px; flex: none; }
+    .ask.checked .ask-icon { border-color: var(--blue-600); background: var(--blue-600); color: var(--white); }
+    .ask-text { margin: 0; color: var(--slate-700); font-size: 0.95rem; font-weight: 600; line-height: 1.55; }
+    .ask.checked .ask-text { color: var(--blue-900); }
+    .final { background: linear-gradient(180deg, var(--blue-900) 0%, #18367d 100%); border: 1px solid var(--blue-800); color: var(--white); text-align: center; padding: 28px; box-shadow: var(--shadow-md); }
+    .final .eyebrow { color: var(--blue-300); margin-bottom: 16px; }
+    .final-copy { max-width: 860px; margin: 0 auto; font-size: clamp(1.25rem, 3vw, 2rem); line-height: 1.55; font-weight: 500; }
+    .final-copy span { color: var(--blue-300); font-weight: 800; border-bottom: 2px solid rgba(96, 165, 250, 0.4); }
+    svg { display: block; }
+    @media (min-width: 768px) {
+      .page { padding: 32px; }
+      .hero { padding: 32px; }
+      .hero-grid, .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .risk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .row-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="stack">
+      <header class="hero">
+        <div class="hero-top">
+          <p class="eyebrow">Executive Snapshot</p>
+          <h1>David Tarullo Contract Update</h1>
+          <p class="hero-sub">ARS Louisville</p>
+        </div>
+        <div class="hero-grid" style="margin-top: 32px;">
+          <div class="panel panel-blue">
+            <div class="panel-title blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 4.9L20 9.3l-4 3.9.9 5.6L12 16.7 7.1 18.8l.9-5.6-4-3.9 5.6-2.4L12 2z" fill="currentColor"></path></svg>
+              <span>Decision Needed</span>
+            </div>
+            <p class="panel-text-strong">Approve continuation of David’s contract beyond May 11</p>
+          </div>
+          <div class="panel panel-slate">
+            <p class="panel-title slate">The Bottom Line</p>
+            <p class="panel-text">David’s work is producing meaningful clinical and operational gains, <strong style="color:#fff; font-weight:800;">AND</strong> ARS Louisville is still in implementation, not steady-state. <strong style="color:#fff; font-weight:800;">Ending his contract now would remove key clinical infrastructure before the new model is stabilized.</strong></p>
+          </div>
+        </div>
+      </header>
+      <div class="grid-2">
+        <section class="card section-pad">
+          <div class="icon-title">
+            <span class="icon-badge icon-emerald"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <h2>What David has accomplished</h2>
+          </div>
+          <ul class="list-clean">
+            <li><span class="dot"></span><span>11 micro-trainings completed</span></li>
+            <li><span class="dot"></span><span>37 case consultations completed</span></li>
+            <li><span class="dot"></span><span>1:1 schedules established</span></li>
+            <li><span class="dot"></span><span>Group safety and standards work in implementation</span></li>
+            <li><span class="dot"></span><span>Group start/stop consistency moved close to standard</span></li>
+            <li><span class="dot"></span><span>Clinician champions identified and developing</span></li>
+          </ul>
+        </section>
+        <section class="card split-card">
+          <div class="split-top">
+            <div class="icon-title" style="margin-bottom:10px;">
+              <span class="icon-badge icon-indigo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c4.4 0 8 2.7 8 6.1 0 3.2-3 5.7-6.9 6.1l-2.3 3.7c-.3.5-1 .2-.9-.4l.5-3.2C6.2 14.8 4 12.3 4 9.1 4 5.7 7.6 3 12 3z" fill="currentColor"></path></svg></span>
+              <h2>What we discovered</h2>
+            </div>
+            <p class="subtle italic">As implementation progressed, deeper issues surfaced...</p>
+            <div class="highlight-box">
+              <p class="label-red">Most Important Issue</p>
+              <p class="mini-head">Front-door clinical / medical practice needed correction</p>
+              <p class="subtle" style="margin:0 0 12px;">A long-standing pattern developed where medication pathways were not always being sufficiently matched to the client’s actual presentation at intake.</p>
+              <div class="tag-row">
+                <span class="tag">Affects fidelity</span><span class="tag">Affects engagement</span><span class="tag">Affects planning</span><span class="tag">Affects consistency</span><span class="tag">Affects confidence</span>
+              </div>
+            </div>
+          </div>
+          <div class="split-bottom">
+            <div class="icon-title" style="margin-bottom:10px;">
+              <span class="icon-badge icon-indigo" style="width:34px; height:34px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19L19 5M10 5h9v9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <h3 style="color:var(--indigo-900);">What we did about it</h3>
+            </div>
+            <p class="subtle" style="color:var(--indigo-800); margin-bottom:16px;">Partnered with the Medical Director to redesign the approach.</p>
+            <div class="result-box">
+              <p class="label-indigo">Result</p>
+              <p class="mini-head">A new person-centered detoxification / intake protocol is established and being:</p>
+              <ul class="three-grid"><li>Trained</li><li>Implemented</li><li>Reinforced weekly</li></ul>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="row-grid">
+        <section class="card split-card">
+          <div class="amber-top">
+            <div class="icon-title" style="margin-bottom:10px;">
+              <span class="icon-badge icon-amber"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19h16M7 16V8m5 8V5m5 11v-6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+              <h2 style="color:var(--amber-900);">Why this matters to census</h2>
+            </div>
+            <p class="amber-emphasis">Census is the business priority.</p>
+            <p class="amber-copy"><strong>AND</strong> increasing census before stabilizing these core weaknesses would:</p>
+            <ul class="arrow-list">
+              <li><span class="arrow">→</span><span>Magnify operational strain</span></li>
+              <li><span class="arrow">→</span><span>Weaken treatment consistency</span></li>
+              <li><span class="arrow">→</span><span>Damage referral confidence</span></li>
+              <li><span class="arrow">→</span><span>Make growth less sustainable</span></li>
+            </ul>
+          </div>
+          <div class="dark-bottom">
+            <p class="label-blue">Translation</p>
+            <p class="translation">This work is not separate from census.<br /><span>It is what protects census growth.</span></p>
+          </div>
+        </section>
+        <div class="stack">
+          <section class="card status-box">
+            <h2 class="plain-title">Current Status</h2>
+            <div class="status-callout">
+              <p class="status-main">ARS Louisville is improving, <strong>AND</strong> still in transition.</p>
+              <p class="status-sub">Progress is real. Execution is catching up to the model.</p>
+            </div>
+            <p class="subtle" style="font-weight:800; color:var(--slate-700); margin-bottom:10px;">Remaining pressure points:</p>
+            <div class="chip-row"><span class="chip">Intake-control reliability</span><span class="chip">Day-to-day consistency</span><span class="chip">Therapist development</span><span class="chip">Referral-partner experience</span></div>
+          </section>
+          <section class="card risk-box">
+            <div class="icon-title" style="margin-bottom:14px;">
+              <span class="icon-badge icon-red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 9v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path><circle cx="12" cy="17" r="1.3" fill="currentColor"></circle><path d="M10.3 3.8L2.9 17a2 2 0 001.7 3h14.8a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path></svg></span>
+              <h2 style="color:var(--red-900);">Risk if contract ends May 11</h2>
+            </div>
+            <div class="risk-alert">CRITICAL FLIGHT RISK: Just last week, the clinical team expressed that David’s mentorship has finally restored their hope for professional development after a long period of uncertainty and reluctance. Removing him now guarantees they will seek new opportunities. 3 of our 4 qualified clinicians will leave, putting us further behind our objectives than when we started 9 months ago.</div>
+            <p class="subtle" style="color:var(--red-800); font-weight:700; margin-bottom:10px;">If David exits now, risk increases in:</p>
+            <ul class="risk-grid">
+              <li><span style="color:var(--red-400);">⚠</span><span>Group fidelity</span></li>
+              <li><span style="color:var(--red-400);">⚠</span><span>Treatment planning consistency</span></li>
+              <li><span style="color:var(--red-400);">⚠</span><span>Front-door decision-making</span></li>
+              <li><span style="color:var(--red-400);">⚠</span><span>Therapist skill development</span></li>
+              <li><span style="color:var(--red-400);">⚠</span><span>Overall clinical standardization</span></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <section class="card support-card">
+        <div class="icon-title" style="margin-bottom:24px;">
+          <span class="icon-badge icon-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="9.5" cy="7" r="4" stroke="currentColor" stroke-width="2.3"></circle><path d="M20 8v6M23 11h-6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"></path></svg></span>
+          <h2>Support Needed</h2>
+        </div>
+        <div class="support-grid" id="support-grid"></div>
+      </section>
+      <section class="card final">
+        <p class="eyebrow">Final Recommendation</p>
+        <p class="final-copy">Continue David’s contract now and begin planning for a more formal long-term clinical systems leadership structure so the <span> gains underway become sustainable </span> as ARS Louisville scales.</p>
+      </section>
+    </div>
+  </div>
+  <script>
+    const supportNeeds = [
+      "Continue David beyond May 11",
+      "Reinforce the clinical implementation plan at leadership level",
+      "Use IDS for problem-solving, With Director Input, rather than sending down new directives that do NOT consider operational realities and impacts.",
+      "Add one clinician for assessments, for ALL ARS to directly empower us to control admissions processes that strictly adhere to our program standards, ensuring long-term fidelity and sustainability.",
+      "Approve CRM licenses for Outreach leadership",
+      "Approve Microsoft tools: Power Apps, Power Automate, Power BI, Dataverse",
+      "Approve outreach reprioritization toward a court-liaison referral strategy that deprioritizes high-risk, ASA-inclined in-dorm assessments. These activities currently sit at the top of our outreach funnel and directly drive our increased ASA/AWOL trends—a risk that will persist until this funnel activity is corrected.",
+      "Continue staffing correction already underway"
+    ];
+    const checked = new Set();
+    const grid = document.getElementById("support-grid");
+    function renderSupportNeeds() {
+      grid.innerHTML = "";
+      supportNeeds.forEach((ask, index) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "ask" + (checked.has(index) ? " checked" : "");
+        item.setAttribute("aria-pressed", checked.has(index) ? "true" : "false");
+        item.innerHTML = `<span class="ask-icon">✓</span><p class="ask-text">${ask}</p>`;
+        item.addEventListener("click", () => {
+          if (checked.has(index)) checked.delete(index); else checked.add(index);
+          renderSupportNeeds();
+        });
+        grid.appendChild(item);
+      });
+    }
+    renderSupportNeeds();
+  </script>
+</body>
+</html>

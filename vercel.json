@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/clinical-integrator-updates",
+      "destination": "/clinical-integrator-updates-v2"
+    },
+    {
+      "source": "/clinical-integrator-updates/",
+      "destination": "/clinical-integrator-updates-v2"
+    }
+  ]
+}

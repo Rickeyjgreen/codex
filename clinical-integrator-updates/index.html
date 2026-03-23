@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bybo AI | Clinical Integrator Updates</title>
+  <meta name="description" content="Executive dashboard for the David Tarullo contract case: executive summary, contribution map, scenario comparison, and C-suite conclusion." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg2: #111b30;
+      --card: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.10);
+      --text: #eef4ff;
+      --muted: #a8b4ca;
+      --blue: #6ea8fe;
+      --green: #73e0b3;
+      --amber: #ffbf69;
+      --red: #ff8d8d;
+      --radius: 20px;
+      --shadow: 0 20px 48px rgba(0,0,0,.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110,168,254,.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(115,224,179,.12), transparent 25%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .wrap { max-width: 1380px; margin: 0 auto; padding: 28px 18px 72px; }
+    .grid { display: grid; gap: 18px; }
+    .hero { grid-template-columns: 1.55fr .85fr; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .inner { padding: 24px; }
+    .brandrow { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:14px; }
+    .brand { font-weight: 800; letter-spacing: .02em; }
+    .path { font-size: 13px; color: var(--muted); }
+    .badges { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
+    .badge { padding:8px 12px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); font-size:12px; color:#dbe7ff; }
+    h1 { margin:0 0 12px; font-size: clamp(2rem, 4.8vw, 4rem); line-height: 1.02; }
+    h2 { margin:0 0 8px; font-size: 1.2rem; }
+    h3 { margin:0 0 6px; font-size: 1rem; }
+    p { margin:0 0 12px; color: var(--muted); line-height:1.75; }
+    .lead { font-size: 1.1rem; }
+    .alert { border:1px solid rgba(110,168,254,.28); background:rgba(110,168,254,.10); border-radius:18px; padding:16px 18px; margin: 18px 0 20px; }
+    .metricgrid { display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
+    .metric, .mini, .panelblock, .point { border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.03); }
+    .metric { padding:14px 16px; }
+    .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+    .value { margin-top:8px; font-size:1.8rem; font-weight:800; }
+    .minigrid { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; margin-top:14px; }
+    .mini { padding:16px; }
+    .minihead { display:flex; justify-content:space-between; gap:10px; align-items:center; margin-bottom:8px; }
+    .decision { display:grid; gap:14px; }
+    .decision .panelblock { padding:18px; }
+    .progresswrap { display:grid; gap:10px; }
+    .prow { display:grid; gap:6px; }
+    .phead { display:flex; justify-content:space-between; gap:10px; font-size:14px; color:var(--muted); }
+    .track { height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; }
+    .bar { height:100%; background:linear-gradient(90deg, var(--blue), var(--green)); border-radius:999px; }
+    .list { display:grid; gap:10px; }
+    .item { display:flex; gap:12px; padding:14px 16px; border:1px solid var(--line); border-radius:16px; background:rgba(255,255,255,.03); }
+    .icon { width:22px; height:22px; border-radius:999px; display:grid; place-items:center; font-size:13px; font-weight:800; flex:none; }
+    .ok { background:rgba(115,224,179,.16); color:var(--green); }
+    .warn { background:rgba(255,191,105,.16); color:var(--amber); }
+    .tabs { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .tabbtn { border:1px solid var(--line); background:rgba(255,255,255,.04); color:#dce7ff; border-radius:14px; padding:12px 16px; cursor:pointer; font-weight:700; }
+    .tabbtn.active { background:rgba(110,168,254,.18); border-color:rgba(110,168,254,.34); }
+    .tab { display:none; margin-top:18px; }
+    .tab.active { display:block; }
+    .split { display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:flex-end; }
+    .search { min-width:260px; flex:1; }
+    input[type="search"] {
+      width:100%; padding:14px 16px; border-radius:16px; border:1px solid var(--line);
+      background:rgba(255,255,255,.04); color:var(--text); outline:none;
+    }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; }
+    .chip { padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:#dce7ff; cursor:pointer; }
+    .chip.active { background:rgba(110,168,254,.16); border-color:rgba(110,168,254,.34); }
+    .contribgrid { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:16px; }
+    .contrib { padding:18px; }
+    .topline { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+    .score { min-width:84px; text-align:right; border:1px solid var(--line); border-radius:16px; padding:10px 12px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .tag { font-size:12px; padding:7px 10px; border:1px solid var(--line); border-radius:999px; color:#dce7ff; }
+    details { border:1px solid var(--line); border-radius:18px; padding:0 18px; background:rgba(255,255,255,.025); margin-top:10px; }
+    summary { list-style:none; cursor:pointer; padding:18px 0; font-weight:800; }
+    summary::-webkit-details-marker { display:none; }
+    .detailbody { padding:0 0 18px; display:grid; gap:10px; }
+    .scenariogrid, .footgrid { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+    .stack { display:grid; gap:18px; }
+    .empty { padding:28px; text-align:center; color:var(--muted); border:1px dashed var(--line); border-radius:18px; margin-top:16px; }
+    @media (max-width: 1180px) {
+      .hero, .split, .scenariogrid, .footgrid, .contribgrid { grid-template-columns: 1fr; }
+      .metricgrid, .minigrid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 680px) {
+      .wrap { padding:18px 14px 60px; }
+      .metricgrid, .minigrid { grid-template-columns: 1fr; }
+      .tabbtn { width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app"></div>
+
+  <script>
+    const areas = [
+      { id:'group-model', title:'Clinical Operating Model for Group Treatment', category:'Program Quality', score:92, summary:'Installed a start-to-finish operating model for residential groups built on structure, boundary consistency, and behavioral leadership rather than loose facilitation.', bullets:['Standardized group execution around seating, silence, phones, start-time discipline, and firm boundaries.','Reinforced the principle that Container precedes content, making structure the basis of safe and effective treatment delivery.','Closed a common gap in young teams: insight without the behavioral authority to interrupt drift, redirect story, and hold the room.','Linked structural drift to concrete operational risks including AMA/ASA, relapse, overdose, chaotic incidents, and treatment dropout.'], value:['Higher group fidelity','Safer rooms','Less staff drift','Better real-time containment'], risk:'Group quality becomes personality-dependent, with gradual loosening of norms and reduced therapeutic containment.' },
+      { id:'treatment-team', title:'Treatment Team as a Clinical Decision Engine', category:'Operations', score:89, summary:'Converted treatment team from descriptive discussion into a repeatable process that forces conceptualization, intervention selection, and treatment plan movement.', bullets:['Established an explicit chain: clinical conceptualization leads intervention selection, which leads treatment plan update.','Reframed treatment plans as operating instructions for residential care rather than paperwork.','Introduced case review expectations across substance use, psychiatric status, participation concerns, treatment-task progress, functional targets, and proposed interventions.','Built a one-page case review tool to reduce narrative drift and tighten documentation inputs.'], value:['Faster treatment-team throughput','More defensible documentation','Better intervention consistency','Stronger payer readiness'], risk:'The team may regress toward discussion-heavy meetings with weaker case movement and less disciplined treatment planning.' },
+      { id:'narrative-accountability', title:'Structured Accountability Architecture', category:'Clinical Discipline', score:87, summary:'Built a sequenced narrative-assignment system that treats accountability work as a core intervention rather than optional homework.', bullets:['Standardized the progression of Motivation Narrative, Family Trauma Narrative, and Step One/Addiction Narrative.','Required presentation, peer feedback, facilitator determination, and redo criteria tied to denial, avoidance, and low effort.','Created a uniform control point through case review so assignments progress consistently across levels of care.','Reduced the tendency of less experienced staff to negotiate avoidance or unintentionally reward resistance.'], value:['Repeatable progression model','Less loophole-driven resistance','Uniform expectations','Higher accountability consistency'], risk:'Assignments may become inconsistently enforced, turning narrative work into optional or negotiable activity.' },
+      { id:'clinical-lens', title:'Sharper Clinical Lens for a High-Risk Population', category:'Case Conceptualization', score:94, summary:'Upgraded how staff interpret survival-level addiction, trauma, attachment injury, and containment deficits under pressure.', bullets:['Shifted clinicians away from symptom checklists toward dynamic case conceptualization under stress.','Clarified that many clients are not simply under-motivated; they are under-contained.','Reduced the risk that staff misread survival behavior as only manipulation or only defiance.','Connected family trauma and developmental injury directly to treatment planning, intervention choice, and behavioral expectations.'], value:['Better formulation','Less punitive drift','Less over-accommodation','Smarter treatment planning'], risk:'Clinical framing may split between punitive and permissive styles, reducing consistency with this population.' },
+      { id:'accountability', title:'Accountability Without Punishment or Chaos', category:'Risk Containment', score:90, summary:'Trained staff to hold a strong line calmly and clearly, without collapsing into shame-based confrontation or permissive drift.', bullets:['Defined accountability as a treatment function, not a punishment strategy.','Taught staff to identify defenses, ask concrete accountability questions, and remain direct, regulated, and non-shaming.','Provided a structured discharge-risk sequence: facts, agreement, choice, impact, driver, corrective action, consequence.','Improved staff handling in high-stakes moments where inexperienced teams often lose leverage.'], value:['Fewer reactive encounters','More uniform consequences','Clearer corrective action','Stronger milieu stability'], risk:'Staff may swing between over-accommodation and emotional confrontation, especially in non-compliance scenarios.' },
+      { id:'trauma-process', title:'Contained Trauma and Process Work', category:'Advanced Practice', score:85, summary:'Increased the team’s ability to run brief experiential work with pacing, grounding, affect containment, and disciplined feedback.', bullets:['Taught clinicians to move clients from story into feeling states without escalating the room.','Structured short prompts, grounding, and role discipline to reduce destabilization risk.','Introduced repeatable protocols such as Truth Response Check-In and Mirror Feedback.','Expanded the team’s ability to do deeper work safely with a trauma-saturated population.'], value:['Safer depth work','Improved affect regulation','More reliable facilitator pacing','Better trauma-process execution'], risk:'The team’s deeper process work may become inconsistent or too risky to sustain with confidence.' }
+    ];
+    const gains = ['Higher group fidelity across clinicians rather than isolated strong performers.','Treatment team functions as a reliable clinical action process.','Narrative accountability stays standardized and behaviorally meaningful.','Clinical framing remains grounded in trauma, attachment, containment, and functional risk.','Trauma and process work deepens safely under stronger facilitator pacing.','Senior mentorship remains active while the systems become culturally embedded.'];
+    const risks = ['Partial adoption followed by drift in group norms and room leadership.','Treatment team slides back toward descriptive discussion.','Accountability becomes inconsistent across staff personalities.','Younger clinicians lose senior containment while still building confidence.','Hard-won gains remain visible but fragile rather than institutionalized.','The organization removes infrastructure before transfer of capability is complete.'];
+    const outcomes = [['Program Quality','Higher','Contained groups, tighter treatment-team mechanics, safer trauma work, and stronger behavioral accountability.'],['Staff Development','Accelerated','Young clinicians are receiving a repeatable senior frame in the exact areas where teams usually drift.'],['Documentation Defensibility','Improved','Interventions, rationale, barriers, and case movement are being tied together more coherently.'],['Risk Containment','Strengthened','Better structure lowers exposure to relapse, AMA/ASA, escalation, and inconsistent responses to non-compliance.']];
+    const state = { tab:'summary', search:'', category:'All' };
+    const avg = Math.round(areas.reduce((a,b)=>a+b.score,0)/areas.length);
+    function esc(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
+    function categories(){ return ['All', ...new Set(areas.map(a=>a.category))]; }
+    function filtered(){ return areas.filter(a=>{ const matchCategory = state.category==='All'||a.category===state.category; const hay = [a.title,a.category,a.summary,a.bullets.join(' '),a.value.join(' '),a.risk].join(' ').toLowerCase(); const matchSearch = hay.includes(state.search.toLowerCase()); return matchCategory && matchSearch; }); }
+    function render(){
+      const app = document.getElementById('app');
+      const rows = filtered();
+      app.innerHTML = `
+        <div class="grid hero">
+          <section class="card"><div class="inner">
+            <div class="brandrow"><div class="brand">Bybo AI · Clinical Integrator Updates</div><div class="path">Path: /clinical-integrator-updates</div></div>
+            <div class="badges"><span class="badge">Executive Decision Dashboard</span><span class="badge">ARS Louisville</span><span class="badge">Clinical Capacity + Risk Containment</span></div>
+            <h1>C-Suite Case for Continuing David Tarullo’s Contract</h1>
+            <p class="lead">A functional executive dashboard with the decision summary, contribution map, scenario comparison, and board-level conclusion.</p>
+            <div class="alert"><strong>Executive position</strong><p style="margin-top:8px">David Tarullo is functioning as a <strong style="color:#fff">clinical systems builder, mentor, and integrator</strong>. The real executive question is whether ARS should remove senior clinical infrastructure before the team has fully absorbed the model he is installing.</p></div>
+            <div class="metricgrid"><div class="metric"><div class="label">Overall System Strength</div><div class="value">${avg}%</div></div><div class="metric"><div class="label">Primary Recommendation</div><div class="value">Continue</div></div><div class="metric"><div class="label">Risk if Ended Early</div><div class="value">High</div></div><div class="metric"><div class="label">Team Maturity</div><div class="value">Developing</div></div></div>
+            <div class="minigrid">${outcomes.map(o=>`<div class="mini"><div class="minihead"><h3>${esc(o[0])}</h3><span class="badge">${esc(o[1])}</span></div><p>${esc(o[2])}</p></div>`).join('')}</div>
+          </div></section>
+          <aside class="card"><div class="inner decision">
+            <div><h2>Decision panel</h2><p>Condensed executive answer</p></div>
+            <div class="panelblock"><div class="path">Recommendation</div><div style="margin-top:8px;font-size:1.45rem;font-weight:800;line-height:1.5">Continue David Tarullo’s contract through the system-embedding phase.</div></div>
+            <div class="progresswrap"><div class="prow"><div class="phead"><span>Case strength</span><strong style="color:#fff">Strong</strong></div><div class="track"><div class="bar" style="width:88%"></div></div></div><div class="prow"><div class="phead"><span>Premature termination risk</span><strong style="color:#fff">Elevated</strong></div><div class="track"><div class="bar" style="width:81%"></div></div></div></div>
+            <p>The materials support a clear executive conclusion: David is functioning as senior clinical infrastructure, not edge support. The contract is strengthening clinical capacity, staff development, risk containment, and program consistency in a team still absorbing the model.</p>
+            <div class="panelblock"><h3>Why C-suite should care</h3><div class="list" style="margin-top:10px"><div class="item"><div class="icon ok">+</div><div>Better clinical consistency with a high-risk population.</div></div><div class="item"><div class="icon ok">+</div><div>Stronger staff development for a young team.</div></div><div class="item"><div class="icon ok">+</div><div>More defensible treatment planning and documentation.</div></div><div class="item"><div class="icon ok">+</div><div>Reduced drift in accountability, groups, and case review.</div></div></div></div>
+          </div></aside>
+        </div>
+        <div class="tabs">${[['summary','Executive Summary'],['contrib','Contribution Map'],['scenario','Scenario Compare'],['conclusion','Board-Level Conclusion']].map(t=>`<button class="tabbtn ${state.tab===t[0]?'active':''}" data-tab="${t[0]}">${t[1]}</button>`).join('')}</div>
+        <section class="tab ${state.tab==='summary'?'active':''}"><div class="split"><div class="card"><div class="inner"><h2>Why this matters specifically for this team</h2><p>ARS Louisville is not training staff for a low-acuity outpatient setting. The population described in the source material is high-risk, chronic-relapsing, trauma-saturated, justice-involved, avoidant under pressure, and vulnerable to relapse, AMA or ASA, destabilization, legal deterioration, overdose, and death.</p><p>This population punishes inconsistency. It quickly exposes weak clinical framing, uneven accountability, and poor containment. A developing team does not naturally converge on a high-discipline model without repeated senior coaching and a unifying clinical frame.</p><p><strong style="color:#fff">David’s value is developmental, not merely educational.</strong> He is helping the team become the kind of team this level of care requires.</p></div></div><div class="card"><div class="inner"><h2>Likely gains if the contract continues</h2><p>What gets stronger if the system fully embeds</p><div class="list" style="margin-top:12px">${gains.map(g=>`<div class="item"><div class="icon ok">✓</div><div>${esc(g)}</div></div>`).join('')}</div></div></div></div></section>
+        <section class="tab ${state.tab==='contrib'?'active':''}"><div class="card"><div class="inner"><h2>Interactive contribution map</h2><p>Search, filter, and expand the evidence behind the recommendation.</p><div class="toolbar"><div class="search"><input id="searchInput" type="search" placeholder="Search themes, risks, or contributions" value="${esc(state.search)}" /></div><div class="chips">${categories().map(c=>`<button class="chip ${state.category===c?'active':''}" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div>${rows.length?`<div class="contribgrid">${rows.map(a=>`<article class="metric contrib"><div class="topline"><div><span class="badge">${esc(a.category)}</span><h3 style="margin-top:10px;font-size:1.05rem;line-height:1.55">${esc(a.title)}</h3></div><div class="score"><div class="label">Strength</div><div style="margin-top:4px;font-size:1.3rem;font-weight:800">${a.score}%</div></div></div><div class="track" style="margin-top:12px"><div class="bar" style="width:${a.score}%"></div></div><p style="margin-top:12px">${esc(a.summary)}</p><div class="tags">${a.value.map(v=>`<span class="tag">${esc(v)}</span>`).join('')}</div><div class="item" style="margin-top:14px;padding:12px 14px"><div class="icon warn">!</div><div>${esc(a.risk)}</div></div></article>`).join('')}</div>${rows.map(a=>`<details><summary>${esc(a.title)}</summary><div class="detailbody"><p>${esc(a.summary)}</p>${a.bullets.map(b=>`<div class="point inner" style="padding:12px 14px">${esc(b)}</div>`).join('')}</div></details>`).join('')}`:`<div class="empty">No contribution areas matched that filter. Try a broader search or switch back to All categories.</div>`}</div></div></section>
+        <section class="tab ${state.tab==='scenario'?'active':''}"><div class="scenariogrid"><div class="card"><div class="inner"><h2>Scenario A — Continue the contract</h2><p>Likely operational outcome</p><div class="list" style="margin-top:12px">${gains.map(g=>`<div class="item"><div class="icon ok">✓</div><div>${esc(g)}</div></div>`).join('')}</div></div></div><div class="card"><div class="inner"><h2>Scenario B — End the contract early</h2><p>Most likely pattern is drift, not neutrality</p><div class="list" style="margin-top:12px">${risks.map(r=>`<div class="item"><div class="icon warn">!</div><div>${esc(r)}</div></div>`).join('')}</div></div></div></div></section>
+        <section class="tab ${state.tab==='conclusion'?'active':''}"><div class="footgrid"><div class="stack"><div class="card"><div class="inner"><h2>Bottom line</h2><p class="lead">David is not an added expense around the edges of programming. He is a <strong style="color:#fff">force multiplier</strong> for program quality, staff development, risk containment, and clinical consistency.</p></div></div><div class="card"><div class="inner"><h2>Executive implication</h2><p>Ending the contract now would remove senior clinical infrastructure while the team is still internalizing the operating system required to serve a high-risk, trauma-saturated population safely and effectively.</p></div></div></div><div class="card"><div class="inner"><h2>Decision summary</h2><div class="list" style="margin-top:12px"><div class="item"><div class="icon ok">1</div><div><strong style="color:#fff">Recommended action</strong><br><span style="color:var(--muted)">Continue contract.</span></div></div><div class="item"><div class="icon ok">2</div><div><strong style="color:#fff">Why now</strong><br><span style="color:var(--muted)">The visible gains indicate the value is becoming embedded, not exhausted.</span></div></div><div class="item"><div class="icon ok">3</div><div><strong style="color:#fff">What is being protected</strong><br><span style="color:var(--muted)">Group containment, case review discipline, narrative accountability, trauma-informed formulation, and calm high-standards staff leadership.</span></div></div></div></div></div></div></section>`;
+      app.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>{state.tab=btn.dataset.tab; render();}));
+      const input=document.getElementById('searchInput'); if(input) input.addEventListener('input',e=>{state.search=e.target.value; render();});
+      app.querySelectorAll('[data-category]').forEach(btn=>btn.addEventListener('click',()=>{state.category=btn.dataset.category; render();}));
+    }
+    render();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VOA Site Walkthrough Intelligence Tool</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">Working intelligence brief navigator</p>
+          <h1>VOA Site Walkthrough Intelligence Tool</h1>
+          <p class="subtitle">
+            Search by question, topic, risk, or operational issue and jump to the section that best explains
+            what was said, what appears established, what remains fuzzy, and what action that should drive.
+          </p>
+        </div>
+        <div id="stats" class="stats"></div>
+      </header>
+
+      <section class="controls">
+        <label class="control search-control">
+          <span>Search</span>
+          <input id="searchInput" type="text" placeholder="Search: Hope Village, cameras, visitor log, hands-off, privacy, weekend protocol, bathroom, signage, open question" />
+        </label>
+        <label class="control">
+          <span>Status</span>
+          <select id="statusFilter">
+            <option value="all">All topic statuses</option>
+            <option value="established">Established</option>
+            <option value="mostly-established">Mostly established</option>
+            <option value="partially-established">Partially established</option>
+            <option value="unresolved">Unresolved</option>
+          </select>
+        </label>
+        <div class="control">
+          <span>Mode</span>
+          <div id="modeTabs" class="mode-tabs">
+            <button data-mode="router" class="active">Router</button>
+            <button data-mode="brief">Brief</button>
+            <button data-mode="quotes">Quotes</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="quickPrompts" class="quick-prompts"></section>
+
+      <main id="app"></main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
